@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ButtonHollow from "./ButtonHollow";
-import ButtonFilled from "./ButtonFilled";
+import CTA_Button from "./CTA_Button";
 import lwk from "../assets/images/lwk_logos/favicons/living-with-krishna-high-resolution-logo-transparent-icon.png";
 
 const Navbar = () => {
@@ -72,18 +71,17 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="/plans-and-pricing" className="text-gray-800 hover:text-orange-500 font-normal">
+            <Link to="#" className="text-gray-800 hover:text-orange-500 font-normal">
               Plans & Pricing
             </Link>
-            <Link to="/become-an-instructor" className="text-gray-800 hover:text-orange-500 font-normal">
+            <Link to="#" className="text-gray-800 hover:text-orange-500 font-normal">
               Become an Instructor
             </Link>
-            <Link to="/contact" className="text-gray-800 hover:text-orange-500 font-normal">
+            <Link to="#" className="text-gray-800 hover:text-orange-500 font-normal">
               Contact
             </Link>
             <div className="flex space-x-2">
-              <Link to='/login'><ButtonHollow>Log In</ButtonHollow></Link>
-              <Link to='/signup'><ButtonFilled>Sign Up</ButtonFilled></Link>
+              <Link to='#'><CTA_Button>Sign Up</CTA_Button></Link>
             </div>
           </div>
         </div>
