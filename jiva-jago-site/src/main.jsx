@@ -4,6 +4,7 @@ import { RouterProvider } from "react-router-dom";
 import { createBrowserRouter } from "react-router-dom";
 import App from './App.jsx';
 import About_Page from './pages/About_Page.jsx'
+import Volunteer_Page from './pages/Volunteer_Page.jsx'
 import Contact_Page from './pages/Contact_Page.jsx'
 import './index.css';
 
@@ -13,16 +14,20 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
   },
-  {
-    path: "/categories",
-    element: <Categories />,
-    children: [
-      // Nested routes
-    ]
-  },
+  // {
+  //   path: "/categories",
+  //   element: <Categories />,
+  //   children: [
+  //     // Nested routes
+  //   ]
+  // },
   {
     path: "/about",
     element: <About_Page />,
+  },
+   {
+    path: "/volunteer",
+    element: <Volunteer_Page />,
   },
   {
     path: "/contact",

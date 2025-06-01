@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import lwk from '../assets/images/lwk_logos/full_logos/dark/living-with-krishna-dark-high-resolution-logo-transparent-cropped.png';
+import logo from "../assets/images/logos/jiva-jago-sa-high-resolution-logo-transparent-main-title-only6.png";
 import { IoLogoFacebook } from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
@@ -13,7 +13,7 @@ const Footer = () => {
         {/* Logo and Short Description */}
         <div>
           <Link to="/" className="text-2xl font-bold text-white hover:text-orange-600">
-            <img src={lwk} alt="Living with Krishna Logo" className="w-52 md:w-60 h-auto mx-auto sm:mx-0" />
+            <img src={logo} alt="Living with Krishna Logo" className="w-52 md:w-60 h-auto mx-auto sm:mx-0" />
           </Link>
         </div>
 

@@ -1,88 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CTA_Button from "./CTA_Button";
-import lwk from "../assets/images/lwk_logos/favicons/living-with-krishna-high-resolution-logo-transparent-icon.png";
+import logo from "../assets/images/logos/jiva-jago-sa-high-resolution-logo-transparent-main-title-only6.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-
-    // Prevent scrolling when menu is open
-    if (!isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
   };
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.classList.toggle("overflow-hidden", isOpen);
+  }, [isOpen]);
 
   return (
     <nav className="bg-white shadow-md w-full z-[1000] sticky top-0">
-      <div className="max-w-9xl mx-auto px-4 sm:px-6">
-        <div className="flex justify-around md:justify-between items-center h-16">
-          {/* Mobile: Menu Button + Logo */}
-          <div className="md:hidden flex items-center space-x-4">
-            {!isOpen && (
-              <button
-                onClick={toggleMenu}
-                className="text-gray-800 hover:text-orange-500 focus:outline-none z-50"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              </button>
-            )}
-
-            <Link to="/" className="text-xl font-bold text-gray-800 hover:text-black mx-auto">
-              <img src={lwk} alt="Living with Krishna" className="w-8 h-auto" />
-            </Link>
-          </div>
-
-          {/* Desktop: Logo + Search Bar */}
-          <div className="hidden md:flex items-center justify-center space-x-6">
-            <Link to="/" className="text-xl font-bold text-gray-800 hover:text-black">
-              <img src={lwk} alt="Living with Krishna" className="w-8 h-auto" />
-            </Link>
-            <Link to="/categories" className="text-gray-800 hover:text-orange-500 font-normal">
-              Categories
-            </Link>
-          </div>
-
-          {/* Desktop: Search Bar */}
-          <div className="hidden md:flex flex-1 mx-4">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-full px-4 py-2 text-sm rounded-full border border-black bg-transparent focus:outline-none"
-            />
-          </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <img src={logo} alt="Jiva Jago Logo" className="w-10 h-auto" />
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link to="#" className="text-gray-800 hover:text-orange-500 font-normal">
-              Plans & Pricing
-            </Link>
-            <Link to="#" className="text-gray-800 hover:text-orange-500 font-normal">
-              Become an Instructor
-            </Link>
-            <Link to="#" className="text-gray-800 hover:text-orange-500 font-normal">
-              Contact
-            </Link>
-            <div className="flex space-x-2">
-              <Link to='#'><CTA_Button>Sign Up</CTA_Button></Link>
-            </div>
+            <Link to="/about" className="text-gray-800 hover:text-orange-500">About</Link>
+            <Link to="/volunteer" className="text-gray-800 hover:text-orange-500">Volunteer</Link>
+            <Link to="/contact" className="text-gray-800 hover:text-orange-500">Contact</Link>
+            <CTA_Button>Sign Up</CTA_Button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button onClick={toggleMenu} className="text-gray-800 focus:outline-none z-50 relative">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
@@ -100,55 +56,13 @@ const Navbar = () => {
         className={`fixed top-0 left-0 h-full bg-white z-40 transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
-        style={{ width: "70%" }}
+        style={{ width: "75%" }}
       >
-        {/* Menu Button (Close Icon) */}
-        <button
-          onClick={toggleMenu}
-          className="absolute top-4 right-4 text-gray-800 bg-gray-100 rounded-full p-2 shadow-lg hover:bg-gray-200 focus:outline-none z-50"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-
-        {/* Search Bar */}
-        <div className="px-4 py-2 mt-8">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-full px-4 py-2 bg-gray-100 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-        </div>
-
-        {/* Menu Links */}
-        <div className="mt-6 space-y-4 px-4">
-          <Link to="/categories" className="block text-lg text-gray-800 hover:text-orange-500" onClick={toggleMenu}>
-            Categories
-          </Link>
-          <Link to="/explore" className="block text-lg text-gray-800 hover:text-orange-500" onClick={toggleMenu}>
-            Explore
-          </Link>
-          <Link to="/plans-and-pricing" className="block text-lg text-gray-800 hover:text-orange-500" onClick={toggleMenu}>
-            Plans & Pricing
-          </Link>
-          <Link to="/become-an-instructor" className="block text-lg text-gray-800 hover:text-orange-500" onClick={toggleMenu}>
-            Become an Instructor
-          </Link>
-          <Link to="/contact" className="block text-lg text-gray-800 hover:text-orange-500" onClick={toggleMenu}>
-            Contact
-          </Link>
+        <div className="p-6 flex flex-col space-y-6 text-lg text-gray-800">
+          <Link to="/about" onClick={toggleMenu} className="hover:text-orange-500">About</Link>
+          <Link to="/volunteer" onClick={toggleMenu} className="hover:text-orange-500">Volunteer</Link>
+          <Link to="/contact" onClick={toggleMenu} className="hover:text-orange-500">Contact</Link>
+          <CTA_Button onClick={toggleMenu}>Sign Up</CTA_Button>
         </div>
       </div>
     </nav>
