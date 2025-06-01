@@ -12,8 +12,8 @@ const Footer = () => {
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* Logo and Short Description */}
         <div>
-          <Link to="/" className="text-2xl font-bold text-white hover:text-orange-600">
-            <img src={logo} alt="Living with Krishna Logo" className="w-52 md:w-60 h-auto mx-auto sm:mx-0" />
+          <Link to="/" className="text-2xl font-bold text-white hover:text-[#E4FF00]">
+            <img src={logo} alt="Jiva Jago Logo" className="w-52 md:w-60 h-auto mx-auto sm:mx-0" />
           </Link>
         </div>
 

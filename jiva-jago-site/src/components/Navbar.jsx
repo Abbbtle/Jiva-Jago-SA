@@ -29,7 +29,7 @@ const Navbar = () => {
             <Link to="/about" className="text-gray-800 hover:text-orange-500">About</Link>
             <Link to="/volunteer" className="text-gray-800 hover:text-orange-500">Volunteer</Link>
             <Link to="/contact" className="text-gray-800 hover:text-orange-500">Contact</Link>
-            <CTA_Button>Sign Up</CTA_Button>
+            <CTA_Button>Donate</CTA_Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -62,7 +62,7 @@ const Navbar = () => {
           <Link to="/about" onClick={toggleMenu} className="hover:text-orange-500">About</Link>
           <Link to="/volunteer" onClick={toggleMenu} className="hover:text-orange-500">Volunteer</Link>
           <Link to="/contact" onClick={toggleMenu} className="hover:text-orange-500">Contact</Link>
-          <CTA_Button onClick={toggleMenu}>Sign Up</CTA_Button>
+          <CTA_Button onClick={toggleMenu}>Donate</CTA_Button>
         </div>
       </div>
     </nav>

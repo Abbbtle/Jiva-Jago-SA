@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Navbar, Hero1, Footer } from './components'
-import './App.css'
+import './index.css'
 
 function App() {
   const [count, setCount] = useState(0)
